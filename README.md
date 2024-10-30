@@ -14,4 +14,4 @@ Some features include:
 
 The frontend was built using HTML5, CSS3, Javascript, Bootstrap, and React. For the backend, we used Nodejs, Express, and Knex.
 
-Please visit the site [here](https://starter-movie-front-end-kohl.vercel.app/).
+Please visit the site [here](https://front-end-hazel-six.vercel.app/).
