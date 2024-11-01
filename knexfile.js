@@ -8,8 +8,8 @@ const {
 
 module.exports = {
   development: {
-    client: "postgresql",
-    connection: DEVELOPMENT_DATABASE_URL, 
+    client: "pg",
+    connection: DEVELOPMENT_DATABASE_URL,
     pool: { min: 0, max: 5 },
     migrations: {
       directory: path.join(__dirname, "src", "db", "migrations"),
@@ -18,11 +18,13 @@ module.exports = {
       directory: path.join(__dirname, "src", "db", "seeds"),
     },
   },
-
   production: {
-    client: "postgresql",
-    connection: PRODUCTION_DATABASE_URL, 
-    pool: { min: 0, max: 5 },
+    client: "pg",
+    connection: {
+      connectionString: PRODUCTION_DATABASE_URL,
+      ssl: { rejectUnauthorized: false },
+    },
+    pool: { min: 2, max: 10 },
     migrations: {
       directory: path.join(__dirname, "src", "db", "migrations"),
     },
@@ -30,7 +32,6 @@ module.exports = {
       directory: path.join(__dirname, "src", "db", "seeds"),
     },
   },
-
   test: {
     client: "sqlite3",
     connection: {
