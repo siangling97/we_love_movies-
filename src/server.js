@@ -1,10 +1,7 @@
-require("dotenv").config();
+const { PORT = 5001 } = process.env;
 
 const app = require("./app");
 const knex = require("./db/connection");
-
-const PORT = process.env.PORT || 5005;
-console.log("Environment PORT:", process.env.PORT); // Add this line to debug
 
 const listener = () => console.log(`Listening on Port ${PORT}!`);
 
